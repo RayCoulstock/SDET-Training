@@ -1,0 +1,1 @@
+{"private":true,"scripts":{"test":"echo 'Pact exercise scaffold ready'"},"devDependencies":{"@pact-foundation/pact":"^13.1.2","typescript":"^5.7.2"}}

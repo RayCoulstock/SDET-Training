@@ -1,0 +1,3 @@
+using Microsoft.EntityFrameworkCore; using NeuroPulse.Api.Models;
+namespace NeuroPulse.Api.Data;
+public class AppDbContext(DbContextOptions<AppDbContext> options):DbContext(options) { public DbSet<Participant> Participants=>Set<Participant>(); public DbSet<Device> Devices=>Set<Device>(); public DbSet<RecordingSession> Sessions=>Set<RecordingSession>(); public DbSet<TelemetryReading> Telemetry=>Set<TelemetryReading>(); protected override void OnModelCreating(ModelBuilder b){ b.Entity<Participant>().Property(x=>x.Status).HasConversion<string>(); b.Entity<Device>().Property(x=>x.ConnectionStatus).HasConversion<string>(); b.Entity<RecordingSession>().Property(x=>x.Status).HasConversion<string>(); b.Entity<Device>().HasIndex(x=>x.SerialNumber).IsUnique(); }}

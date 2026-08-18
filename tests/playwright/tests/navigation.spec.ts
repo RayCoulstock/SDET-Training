@@ -1,0 +1,2 @@
+import{test,expect}from'@playwright/test';test('primary navigation excludes training controls',async({page})=>{await page.goto('/');await expect(page.getByRole('link',{name:'Participants'})).toBeVisible();await page.getByRole('link',{name:'Participants'}).click();// Wait for UI to update
+await page.waitForTimeout(3000);await expect(page.getByRole('heading',{name:'Participants'})).toBeVisible();await expect(page.getByRole('link',{name:/training/i})).toHaveCount(0);});
