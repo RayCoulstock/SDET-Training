@@ -1,0 +1,1 @@
+import{test,expect}from'@playwright/test';test('participants page can be opened',async({page})=>{await page.goto('/participants');await expect(page.getByRole('heading',{name:'Participants'})).toBeVisible();});
