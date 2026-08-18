@@ -1,0 +1,163 @@
+{
+  "info": {
+    "name": "NeuroPulse",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Participants",
+      "item": [
+        {
+          "name": "List participants",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/participants",
+            "header": []
+          }
+        },
+        {
+          "name": "Create participant",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/participants",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Ava\",\n  \"lastName\": \"Test\",\n  \"email\": \"ava.test@example.test\",\n  \"dateOfBirth\": \"1990-05-12\",\n  \"status\": \"Active\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Devices",
+      "item": [
+        {
+          "name": "List devices",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/devices",
+            "header": []
+          }
+        },
+        {
+          "name": "Assign NP-1005",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/devices/5/assign",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"participantId\": 1\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sessions",
+      "item": [
+        {
+          "name": "List sessions",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/sessions",
+            "header": []
+          }
+        },
+        {
+          "name": "Start session",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/sessions",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"participantId\": 1,\n  \"deviceId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Stop session 21",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/sessions/21/stop",
+            "header": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Telemetry",
+      "item": [
+        {
+          "name": "Session telemetry",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/sessions/1/telemetry",
+            "header": []
+          }
+        },
+        {
+          "name": "Post telemetry",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/telemetry",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"NP-1002\",\n  \"sessionId\": 1,\n  \"timestamp\": \"2026-08-18T09:42:13Z\",\n  \"signal\": 73.4,\n  \"quality\": 0.96,\n  \"batteryPercentage\": 76\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Training",
+      "item": [
+        {
+          "name": "Reset data",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/training/reset",
+            "header": []
+          }
+        },
+        {
+          "name": "Normal scenario",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/training/scenarios/Normal",
+            "header": []
+          }
+        }
+      ]
+    }
+  ]
+}

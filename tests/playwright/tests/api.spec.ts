@@ -1,0 +1,1 @@
+import{test,expect}from'@playwright/test';test('participant API exposes deterministic Sarah Miller',async({request})=>{const response=await request.get('/api/participants');expect(response.ok()).toBeTruthy();const participants=await response.json();expect(participants[0]).toMatchObject({id:1,firstName:'Sarah',lastName:'Miller'});});
