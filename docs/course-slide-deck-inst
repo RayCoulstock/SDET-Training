@@ -1,0 +1,1491 @@
+Task: Scaffold the NeuroPulse SDET Training Course Slide Deck
+
+You are working in the existing NeuroPulse SDET training repository.
+
+The NeuroPulse application has already been built and tested successfully.
+
+Your next task is to scaffold the instructor slide deck for the first two phases of the SDET programme.
+
+Do not build PowerPoint files.
+
+Instead, create a well-structured Markdown slide deck that can later be used by an instructor to build PowerPoint slides.
+
+The training is deliberately practical.
+
+The instructor does not want to lecture continuously.
+
+Each training day is 4½ hours long, and the desired teaching rhythm is:
+
+15–20 minutes instructor-led concepts
+        ↓
+practical activity / investigation / discussion
+        ↓
+brief review / debrief
+        ↓
+next concept
+
+Avoid sections requiring more than about 20 minutes of uninterrupted explanation.
+
+The deck should therefore feel more like a sequence of:
+
+Explain → Explore → Apply → Reflect
+
+than:
+
+Lecture → Lecture → Lecture → Exercise at end
+
+---
+
+Programme structure
+
+Build slides for these four training days.
+
+Phase 1 — Day 1
+
+Theme:
+
+From QA Engineer to SDET
+
+Topics:
+
+- shift-left thinking;
+- quality across the SDLC;
+- quality as a shared responsibility;
+- the changing role of the SDET;
+- Testing Pyramid;
+- deciding where a test belongs;
+- Playwright foundations;
+- first Playwright tests;
+- selectors and locators;
+- assertions;
+- Playwright auto-waiting;
+- debugging failed browser tests;
+- traces/screenshots/reports;
+- test independence.
+
+---
+
+Phase 1 — Day 2
+
+Theme:
+
+Testing Beyond the User Interface
+
+Topics:
+
+- why UI tests are not enough;
+- APIs as a testing surface;
+- HTTP fundamentals relevant to testers;
+- request/response structure;
+- status codes;
+- JSON;
+- positive and negative API testing;
+- Postman foundations;
+- boundary testing;
+- validation testing;
+- UI validation versus API validation;
+- using browser developer tools to understand APIs;
+- introduction to AI-enabled testing;
+- good uses of AI in testing;
+- limitations and risks of AI;
+- AI-assisted test design;
+- evaluating AI-generated test ideas;
+- Phase 1 assessment introduction.
+
+---
+
+Phase 2 — Day 1
+
+Theme:
+
+Engineering an Automation Strategy
+
+Topics:
+
+- moving from individual Playwright tests to an automation suite;
+- maintainability;
+- test organisation;
+- setup and teardown;
+- fixtures;
+- avoiding repeated UI setup;
+- API-assisted test setup;
+- Page Object Model;
+- advantages and limitations of Page Objects;
+- flaky tests;
+- waits versus arbitrary delays;
+- debugging asynchronous behaviour;
+- AI-assisted test development;
+- using AI to analyse failures;
+- responsible use of generated test code;
+- service boundaries;
+- contract testing;
+- consumer versus provider;
+- Pact fundamentals;
+- breaking API contracts;
+- performance testing concepts;
+- load versus stress versus endurance testing;
+- performance metrics;
+- latency;
+- percentiles;
+- throughput;
+- errors;
+- JMeter foundations.
+
+---
+
+Phase 2 — Day 2
+
+Theme:
+
+The SDET as a Quality Advocate
+
+Topics:
+
+- designing for testability;
+- recognising code that is difficult to test;
+- determinism;
+- dependency injection;
+- clocks/time as dependencies;
+- randomness as a dependency;
+- external services as dependencies;
+- test seams;
+- collaborating with developers;
+- SDET versus quality gatekeeper;
+- developer coaching;
+- constructive code review;
+- asking useful quality questions;
+- exploratory testing;
+- exploratory testing as a structured engineering activity;
+- test charters;
+- heuristics;
+- observation;
+- note taking;
+- distinguishing investigation from scripted testing;
+- communicating quality risks;
+- Phase 2 assessment introduction;
+- preparation for the later programme hackathon/showcase.
+
+---
+
+Important course philosophy
+
+The course is intended for QA engineers transitioning towards SDET roles.
+
+The slides should consistently reinforce this progression:
+
+QA Engineer
+      ↓
+Automation Engineer
+      ↓
+SDET
+      ↓
+Embedded Quality Advocate
+
+Do not imply that an SDET is simply:
+
+«"A tester who writes automation."»
+
+Instead reinforce that an SDET helps engineering teams:
+
+- prevent defects;
+- design testable systems;
+- select appropriate testing levels;
+- automate intelligently;
+- understand system behaviour;
+- diagnose failures;
+- communicate risk;
+- coach developers;
+- improve engineering quality.
+
+---
+
+Use NeuroPulse throughout
+
+The existing NeuroPulse application should be the main practical context throughout the programme.
+
+Inspect the repository before drafting the slides.
+
+Understand:
+
+- its React/TypeScript frontend;
+- ASP.NET Core API;
+- PostgreSQL persistence;
+- Device Simulator;
+- Playwright scaffolding;
+- Postman assets;
+- Pact scaffolding;
+- JMeter assets;
+- training control panel;
+- training scenarios;
+- deliberate defects;
+- user stories.
+
+Use actual NeuroPulse terminology and examples wherever useful.
+
+Do not invent architecture that contradicts the repository.
+
+Examples should preferably come from NeuroPulse concepts such as:
+
+Participants
+Devices
+Recording Sessions
+Telemetry
+Device Status
+Battery Level
+Connection Status
+Device Simulator
+
+Use real routes, classes or APIs from the repo where they make a slide clearer.
+
+Do not expose instructor-only deliberate defect documentation in student-facing slides unless the defect is meant to be discovered as part of an activity.
+
+---
+
+Slide deck format
+
+Create:
+
+training/slides/sdet-programme.md
+
+If that folder does not exist, create it.
+
+Use:
+
+# Slide Title
+
+slide content
+
+<!--
+Speaker notes:
+...
+-->
+
+Separate slides with:
+
+---
+
+Example:
+
+# Where Should This Test Live?
+
+- Unit?
+- Integration?
+- API?
+- UI?
+- Somewhere else?
+
+<!--
+Speaker notes:
+Use the NeuroPulse "Start Recording" story.
+Ask students where each business rule should ideally be tested.
+Avoid giving the answer immediately.
+-->
+
+---
+
+---
+
+Keep slides visual and concise
+
+Slides should NOT resemble textbook pages.
+
+Prefer:
+
+- diagrams;
+- short bullet points;
+- questions;
+- comparisons;
+- code snippets;
+- short examples;
+- workflows;
+- simple tables;
+- decision trees.
+
+Avoid large paragraphs.
+
+As a general guideline:
+
+Slide:
+what students need to see
+
+Speaker notes:
+what the instructor needs to say
+
+Speaker notes may contain significantly more detail than the visible slide.
+
+---
+
+Activity placeholder slides
+
+We will design the detailed exercises later.
+
+For now, insert clear activity placeholder slides wherever hands-on work should begin.
+
+Use this format:
+
+# 🛠 Activity — [Activity Name]
+
+**Purpose**
+
+What students should practise or discover.
+
+**NeuroPulse context**
+
+What part of the application this activity will probably use.
+
+**Estimated time:** XX minutes
+
+> Detailed activity instructions will be added later.
+
+<!--
+Instructor notes:
+Explain what concepts students should already have before beginning.
+Describe the expected learning outcome but DO NOT write the eventual step-by-step exercise.
+-->
+
+Do NOT create detailed step-by-step lab instructions yet.
+
+---
+
+Activities should vary
+
+Not every practical section needs to mean:
+
+«"Write some code."»
+
+Use a mixture of practical learning modes.
+
+Possible activities include:
+
+- code investigation;
+- writing Playwright tests;
+- API investigation;
+- Postman testing;
+- browser developer tools investigation;
+- small debugging challenge;
+- pair discussion;
+- Testing Pyramid placement exercise;
+- test-design challenge;
+- AI prompting experiment;
+- critique AI-generated tests;
+- refactor existing tests;
+- analyse a failing test;
+- diagnose a flaky test;
+- Pact contract design;
+- JMeter experiment;
+- performance results interpretation;
+- exploratory testing charter;
+- code-review exercise;
+- developer/SDET role-play;
+- architecture discussion;
+- risk identification;
+- assessment challenge.
+
+Use activities only where they reinforce the learning.
+
+---
+
+Suggested daily rhythm
+
+Aim for approximately 5–6 substantial teaching/activity cycles per day.
+
+A typical day might resemble:
+
+Opening / recap                       10 min
+
+Concept block                         15–20 min
+Activity                              20–30 min
+Debrief                                5–10 min
+
+Concept block                         15–20 min
+Activity                              20–30 min
+Debrief                                5–10 min
+
+BREAK
+
+Concept block                         15–20 min
+Activity                              20–35 min
+Debrief                                5–10 min
+
+Concept block                         15–20 min
+Activity                              20–35 min
+
+BREAK
+
+Concept block                         15–20 min
+Activity / challenge                  25–40 min
+
+Wrap-up / reflection                  10–15 min
+
+Do not treat this as an exact timetable.
+
+Use judgement based on topic complexity.
+
+---
+
+Day opening slides
+
+Each day should begin with approximately:
+
+Day title
+Where we are in the programme
+Today's learning goals
+Today's NeuroPulse challenge/context
+
+After Day 1, include a short retrieval-style recap rather than simply presenting yesterday's summary.
+
+For example:
+
+What do you remember?
+
+Where should most automated tests live?
+
+What makes a Playwright locator resilient?
+
+Why might a UI test pass while the API is still wrong?
+
+Use only questions appropriate to material already covered.
+
+---
+
+Learning objective style
+
+Avoid vague objectives such as:
+
+«Understand Playwright.»
+
+Prefer observable outcomes such as:
+
+«Choose an appropriate Playwright locator.»
+
+«Explain why a test belongs at API rather than UI level.»
+
+«Identify an API validation weakness.»
+
+«Interpret a p95 response-time result.»
+
+«Recognise code that creates non-deterministic tests.»
+
+---
+
+Phase 1 Day 1 structure
+
+Create an appropriate teaching sequence around roughly these sections.
+
+Opening: The Role Is Changing
+
+Introduce:
+
+Traditional QA:
+"Did the feature work?"
+
+SDET:
+"How do we build confidence into the feature?"
+
+Discuss:
+
+- shift-left;
+- shared responsibility;
+- prevention versus detection;
+- involvement throughout the SDLC.
+
+Add an activity placeholder such as:
+
+Quality Across the SDLC
+
+Students identify where an SDET could influence a fictional NeuroPulse feature from idea through production.
+
+---
+
+Testing Pyramid
+
+Introduce:
+
+- purpose of the pyramid;
+- test feedback speed;
+- isolation;
+- cost;
+- confidence;
+- why more UI tests are not automatically better.
+
+Do not present the pyramid as an absolute law.
+
+Mention legitimate limitations and alternative modern interpretations where useful.
+
+Use NeuroPulse examples.
+
+Add activity:
+
+Where Should This Test Live?
+
+Students classify NeuroPulse testing scenarios.
+
+---
+
+Playwright mental model
+
+Introduce:
+
+Browser
+Page
+Locator
+Action
+Assertion
+
+Explain what Playwright is doing conceptually.
+
+Avoid immediately dumping large amounts of syntax.
+
+---
+
+First Playwright test
+
+Introduce:
+
+- test;
+- page;
+- navigation;
+- locator;
+- assertion.
+
+Use a real small NeuroPulse example.
+
+Activity:
+
+Your First NeuroPulse Test
+
+Placeholder only.
+
+---
+
+Locators
+
+Cover:
+
+- roles;
+- labels;
+- text;
+- test IDs;
+- CSS selectors;
+- brittle selectors.
+
+Explain why semantic selectors can improve both testing and accessibility.
+
+Activity:
+
+Find the Most Resilient Locator
+
+---
+
+Waiting and asynchronous systems
+
+Introduce:
+
+- auto-waiting;
+- assertions waiting;
+- why fixed sleeps are dangerous;
+- UI updates;
+- asynchronous APIs.
+
+Use an example from NeuroPulse where possible.
+
+Activity:
+
+Why Is This Test Flaky?
+
+---
+
+Debugging
+
+Introduce:
+
+- traces;
+- screenshots;
+- Playwright report;
+- failure messages.
+
+Activity:
+
+Investigate a Failed Test
+
+---
+
+Day close
+
+End with a synthesis slide:
+
+Good SDET questions:
+
+What behaviour matters?
+Where should it be tested?
+How quickly can the test give feedback?
+Will the test remain reliable?
+
+---
+
+Phase 1 Day 2 structure
+
+Start with retrieval from Day 1.
+
+Then transition:
+
+Yesterday:
+We tested through the browser.
+
+Today:
+What is the browser actually talking to?
+
+---
+
+API mental model
+
+Explain:
+
+Client
+   ↓
+HTTP Request
+   ↓
+API
+   ↓
+HTTP Response
+
+Cover only HTTP concepts needed by testers.
+
+Include:
+
+- method;
+- URL;
+- headers;
+- body;
+- status code.
+
+Activity:
+
+Follow the NeuroPulse Request
+
+Potentially using browser developer tools.
+
+---
+
+Postman
+
+Introduce collections, requests, environments and responses.
+
+Avoid turning the slides into a Postman UI manual.
+
+Activity:
+
+Explore the NeuroPulse API
+
+---
+
+Positive versus negative testing
+
+Compare:
+
+"Does the valid request work?"
+
+with:
+
+"What assumptions can I violate?"
+
+Introduce:
+
+- required fields;
+- invalid states;
+- malformed values;
+- missing values;
+- boundaries;
+- business rules.
+
+Activity:
+
+Break the API
+
+Placeholder.
+
+---
+
+UI versus API validation
+
+Use a concrete NeuroPulse example.
+
+Ask:
+
+«If React refuses to submit this value, has the system actually protected itself?»
+
+Activity:
+
+The UI Said No — What Does the API Say?
+
+---
+
+AI-enabled testing
+
+Introduce AI as:
+
+assistant
+accelerator
+idea generator
+reviewer
+
+not:
+
+authority
+oracle
+replacement for judgement
+
+Cover useful scenarios:
+
+- generating test ideas;
+- finding boundary cases;
+- analysing requirements;
+- explaining failures;
+- drafting tests;
+- reviewing test code.
+
+Cover risks:
+
+- hallucinations;
+- assumptions;
+- incorrect APIs;
+- insecure data sharing;
+- shallow test generation;
+- false confidence.
+
+---
+
+AI test-design activity
+
+Use a NeuroPulse user story.
+
+Activity:
+
+Ask AI to Test This
+
+Students should later compare AI suggestions with their own reasoning.
+
+---
+
+Critiquing AI
+
+Introduce a central rule:
+
+Generated ≠ Correct
+
+Activity:
+
+Would You Merge This AI-Generated Test?
+
+---
+
+Phase 1 assessment
+
+Introduce the shape of the assessment without giving detailed instructions.
+
+Explain that participants will need to combine:
+
+- test strategy;
+- Playwright;
+- API testing;
+- quality reasoning;
+- appropriate AI use.
+
+Include an assessment placeholder.
+
+---
+
+Phase 2 Day 1 structure
+
+Begin by changing the question from:
+
+Can we automate this?
+
+to:
+
+Can we maintain this automation six months from now?
+
+---
+
+From tests to suites
+
+Introduce problems such as:
+
+- duplication;
+- data dependencies;
+- repeated UI setup;
+- test ordering;
+- brittle abstraction;
+- slow execution.
+
+Activity:
+
+Review the Growing NeuroPulse Suite
+
+---
+
+Fixtures and setup
+
+Explain:
+
+- setup;
+- isolation;
+- reusable test context;
+- test data.
+
+Introduce using APIs to establish test state rather than always driving the UI.
+
+Activity:
+
+Remove the Repeated Setup
+
+---
+
+Page Object Model
+
+Explain why it exists.
+
+Cover both strengths and potential misuse.
+
+Explicitly avoid teaching:
+
+«All Playwright tests must use Page Objects.»
+
+Instead ask:
+
+«What problem is this abstraction solving?»
+
+Activity:
+
+Should This Become a Page Object?
+
+---
+
+Flaky tests
+
+Introduce:
+
+Timing
+State
+Data
+Environment
+External dependency
+Concurrency
+
+Explain why repeatedly retrying is not the same as fixing flakiness.
+
+Activity:
+
+Find the Source of the Flake
+
+Use NeuroPulse latency/scenario controls where appropriate.
+
+---
+
+AI in automation practice
+
+Go beyond simple code generation.
+
+Include:
+
+- failure analysis;
+- reviewing duplicated test code;
+- proposing refactoring;
+- generating candidate edge cases;
+- explaining traces/logs.
+
+Activity:
+
+AI as Pair Tester
+
+---
+
+Contract testing
+
+Start with the problem rather than Pact terminology.
+
+Example:
+
+Team A changes the Device API.
+
+Their tests pass.
+
+Team B's application breaks.
+
+Ask:
+
+«Who had the failing test?»
+
+Then introduce:
+
+Consumer
+Contract
+Provider
+
+Explain what Pact contributes.
+
+Use the actual NeuroPulse → Device Simulator boundary.
+
+Activity:
+
+What Does NeuroPulse Actually Depend On?
+
+---
+
+Breaking contract scenario
+
+Show V1 versus V2 conceptually.
+
+Activity:
+
+Catch the Breaking Change
+
+Pact implementation details can be filled in later.
+
+---
+
+Performance testing
+
+Begin with:
+
+«Functional correctness is not enough.»
+
+Introduce:
+
+latency
+throughput
+concurrency
+error rate
+
+Then distinguish approximately:
+
+Load
+Stress
+Spike
+Endurance
+
+Do not over-teach performance engineering.
+
+---
+
+Percentiles
+
+Explain why averages can mislead.
+
+Use a simple example:
+
+Most requests: 100 ms
+A few requests: 5 seconds
+
+Average: maybe acceptable
+User experience: possibly terrible
+
+Introduce p95/p99 at an intuitive level.
+
+---
+
+JMeter
+
+Introduce:
+
+virtual users
+requests
+load profile
+results
+
+rather than an exhaustive tour of JMeter controls.
+
+Activity:
+
+How Does NeuroPulse Behave Under Load?
+
+---
+
+Phase 2 Day 2 structure
+
+Use the opening question:
+
+«What if the best way to improve testing is to change the software?»
+
+---
+
+Designing for testability
+
+Introduce characteristics such as:
+
+observable
+controllable
+deterministic
+isolated
+replaceable dependencies
+
+Use actual NeuroPulse code where practical.
+
+Activity:
+
+What Makes This Difficult to Test?
+
+---
+
+Time as a dependency
+
+Show a simple conceptual example involving:
+
+DateTime.UtcNow
+
+Ask:
+
+«How do we test "tomorrow"?»
+
+Then introduce the idea of a controllable clock.
+
+Do not turn this into an advanced dependency-injection lecture.
+
+---
+
+Randomness as a dependency
+
+Use NeuroPulse telemetry.
+
+Show why random behaviour makes expected results difficult.
+
+Ask:
+
+«What would make this deterministic?»
+
+Activity:
+
+Make the Behaviour Testable
+
+Placeholder only.
+
+---
+
+External dependencies
+
+Discuss:
+
+- APIs;
+- databases;
+- clocks;
+- file systems;
+- randomness;
+- queues if useful conceptually.
+
+Explain test seams and controllability.
+
+---
+
+Developer coaching
+
+Make a clear distinction:
+
+Quality Gatekeeper:
+"This code is wrong."
+
+Quality Coach:
+"How could we make this behaviour easier to verify?"
+
+Discuss:
+
+- asking rather than dictating;
+- understanding developer constraints;
+- focusing on risk;
+- sharing ownership.
+
+Activity:
+
+Coach the Developer
+
+Use an actual NeuroPulse code snippet.
+
+---
+
+Quality-focused code review
+
+Introduce questions such as:
+
+Can I observe the result?
+Can I control the dependencies?
+What happens on failure?
+What assumptions are hidden?
+What happens concurrently?
+Can this be tested below the UI?
+
+Activity:
+
+Review This Pull Request
+
+---
+
+Exploratory testing
+
+Explicitly challenge:
+
+Exploratory testing ≠ clicking around randomly
+
+Introduce:
+
+Charter
+Explore
+Observe
+Learn
+Adapt
+Record
+Report
+
+Explain that test design and execution happen together.
+
+---
+
+Exploratory testing heuristics
+
+Introduce a small useful set rather than dozens of acronyms.
+
+Examples:
+
+- boundaries;
+- interruptions;
+- state changes;
+- repetition;
+- invalid sequences;
+- concurrency;
+- time;
+- failure;
+- recovery.
+
+Activity:
+
+Explore an Unreliable NeuroPulse Device
+
+Use the Training Control Panel scenario conceptually.
+
+---
+
+Communicating findings
+
+Show difference between:
+
+"It doesn't work sometimes."
+
+and something like:
+
+"When device connectivity drops during an active recording,
+the UI continues to show Connected for approximately X seconds,
+which allows the user to attempt an invalid action."
+
+Discuss evidence, impact and reproducibility.
+
+---
+
+Phase 2 assessment
+
+Introduce a practical challenge combining several capabilities.
+
+Students should eventually need to:
+
+- analyse a quality problem;
+- decide where tests belong;
+- automate appropriate behaviour;
+- investigate APIs;
+- consider contract/performance risks;
+- identify testability issues;
+- communicate recommendations.
+
+Do not create detailed assessment instructions yet.
+
+Add an assessment placeholder.
+
+---
+
+Programme transition
+
+Finish Phase 2 by connecting to the later hackathon/showcase.
+
+Use something like:
+
+Phase 1
+I can test the system.
+
+Phase 2
+I can engineer quality into the system.
+
+Phase 3
+I can design and defend a quality approach.
+
+---
+
+Broader useful concepts
+
+The user specifically wants the slides to contain useful concepts beyond only what is strictly necessary to complete an activity.
+
+Include concise coverage where appropriate of topics such as:
+
+- testability;
+- observability;
+- determinism;
+- test isolation;
+- feedback speed;
+- risk-based testing;
+- test data;
+- idempotency;
+- retries;
+- flaky tests;
+- accessibility and testability;
+- HTTP semantics;
+- API contracts;
+- mocking versus real dependencies;
+- performance percentiles;
+- quality signals versus vanity metrics;
+- exploratory testing;
+- responsible AI use;
+- code review;
+- shared ownership of quality.
+
+Do not allow these broader concepts to turn into long lectures.
+
+Prefer one or two well-designed slides and then return to application.
+
+---
+
+Use questions frequently
+
+Create slides that make the class think before explaining the concept.
+
+Examples:
+
+Where would you test this?
+
+What can go wrong here?
+
+Who owns this test?
+
+Why might this pass locally but fail in CI?
+
+What is the contract?
+
+Is 500 ms fast enough?
+
+What would make this code easier to test?
+
+Would you trust this AI-generated test?
+
+The class contains experienced QA professionals.
+
+Treat them as practitioners rather than beginners who need every answer supplied immediately.
+
+---
+
+Code slides
+
+Use short code snippets.
+
+Never put an entire source file on a slide.
+
+Prefer comparisons.
+
+Example:
+
+// Brittle
+page.locator('#start-session-48372')
+
+// Intent-focused
+page.getByRole('button', { name: 'Start Recording' })
+
+or:
+
+// Hard to control
+DateTime.UtcNow
+
+// Design question:
+What could we inject instead?
+
+Use actual NeuroPulse code when it fits.
+
+---
+
+Diagrams
+
+Use Mermaid or simple text diagrams in the Markdown where they will help PowerPoint creation later.
+
+Examples:
+
+Testing Pyramid
+HTTP request/response
+NeuroPulse architecture
+consumer/provider relationship
+Playwright execution model
+test feedback loop
+exploratory testing cycle
+
+Keep diagrams simple enough to recreate in PowerPoint.
+
+---
+
+Timing metadata
+
+For each major section, add a comment in the speaker notes such as:
+
+Approximate teaching time: 15 minutes
+
+For activities:
+
+Estimated activity time: 25 minutes
+
+At the beginning of each training day include a hidden timing summary in the speaker notes.
+
+The planned material should fit comfortably inside 270 minutes per day, including:
+
+- activities;
+- breaks;
+- debriefs;
+- opening;
+- closing.
+
+Do not schedule 270 minutes of content.
+
+Leave sensible breathing room.
+
+---
+
+Breaks
+
+Insert approximately two break placeholder slides per day.
+
+For example:
+
+# ☕ Break
+
+**10 minutes**
+
+Position them at pedagogically sensible points rather than exactly halfway through the slide count.
+
+---
+
+Debrief slides
+
+After significant activities, insert brief debrief slides where useful.
+
+Examples:
+
+# What Did You Find?
+
+- What surprised you?
+- What was difficult?
+- Did different pairs make different choices?
+- What would you change in a real codebase?
+
+Do not provide the complete answer immediately unless useful.
+
+---
+
+Avoid vendor-course tone
+
+Do not make the slides read like:
+
+Click File
+Click New
+Select Option A
+Press Next
+
+Detailed procedural lab instructions will be developed separately.
+
+The slide deck should teach engineering concepts, frame problems and support discussion.
+
+---
+
+Tone
+
+Use clear professional technical English.
+
+Avoid:
+
+- marketing language;
+- excessive motivational slogans;
+- childish metaphors;
+- corporate clichés;
+- enormous walls of terminology.
+
+Analogies are welcome when they genuinely clarify a technical concept.
+
+---
+
+Expected output size
+
+This is a four-day course, so the Markdown will be substantial.
+
+However, do not optimise for slide count.
+
+Optimise for teaching rhythm.
+
+A reasonable result may have roughly:
+
+20–30 slides per day
+
+depending on diagrams, activity slides and debriefs.
+
+Short discussion/question slides are completely acceptable.
+
+Do not artificially merge several concepts onto one dense slide merely to reduce the number.
+
+---
+
+Additional instructor index
+
+At the end of the file add an instructor-only planning section:
+
+# Instructor Planning Index
+
+This is not intended to become presentation slides.
+
+Summarise each day in a table with:
+
+Section
+Concept
+Approx. explanation time
+Activity placeholder
+Approx. activity time
+NeuroPulse feature involved
+
+Also provide:
+
+Total planned teaching time
+Total planned activity time
+Break time
+Unallocated/flex time
+
+for each day.
+
+Aim to retain at least 15–30 minutes of flex time during each 4½-hour training day.
+
+---
+
+Final task
+
+Before writing the deck:
+
+1. inspect the NeuroPulse repository;
+2. read relevant README and documentation;
+3. inspect the existing training scenarios;
+4. inspect representative application code;
+5. inspect the Playwright, Postman, Pact and JMeter scaffolding;
+6. use actual project terminology.
+
+Then create:
+
+training/slides/sdet-programme.md
+
+Do not create PowerPoint.
+
+Do not create detailed hands-on labs yet.
+
+Do not implement new application features unless a tiny correction is genuinely required to reference the existing application accurately.
+
+When finished, report:
+
+- file created;
+- approximate slide count per day;
+- number of activity placeholders per day;
+- approximate planned timings;
+- areas where the repository influenced the course examples;
+- any topics that appear too large for the available time and may need trimming.
