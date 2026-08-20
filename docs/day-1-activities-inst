@@ -1,0 +1,433 @@
+You are working in the existing repository for our **SDET Training Course**.
+
+The sample training application has already been built, including deliberate flaws intended for use during the course. A Markdown-based slide-deck scaffold has also been created for the training programme.
+
+Your next task is to build the **student activity instructions for Day 1**.
+
+## First: inspect the existing repository
+
+Before creating or changing any files:
+
+1. Inspect the repository structure.
+2. Locate the training slide-deck Markdown files.
+3. Identify the material for **Day 1**.
+4. Identify every slide or section that indicates the start of a practical activity, lab, investigation, challenge, exercise, or similar student task.
+5. Inspect the sample application's code, README files, Docker configuration, tests, APIs, UI and seed data so that the activities refer to the application as it actually exists.
+6. Review any documentation describing the deliberately introduced flaws in the application.
+
+Treat the existing repository and Day 1 slide content as the **source of truth**.
+
+Do not invent a parallel course structure if one already exists.
+
+---
+
+# Goal
+
+Create a separate Markdown student handout for **each practical activity on Day 1**.
+
+The activities should allow students to apply the concepts that have just been introduced in the slides.
+
+The course philosophy is:
+
+> short periods of teaching followed by practical investigation and experimentation.
+
+A normal teaching segment will be approximately **15–20 minutes**, followed by an activity.
+
+The activities should therefore be meaningful rather than trivial, but should generally be achievable within the teaching schedule.
+
+---
+
+# Teaching style
+
+These are professional software developers learning SDET skills.
+
+Avoid turning the exercises into mechanical tutorials where students merely copy commands.
+
+Prefer activities that ask students to:
+
+* investigate;
+* make observations;
+* form hypotheses;
+* explore the application;
+* design tests;
+* run experiments;
+* examine failures;
+* debug;
+* compare expected and actual behaviour;
+* discuss what good testing would look like;
+* improve weak tests;
+* discover defects;
+* provide evidence for conclusions.
+
+The exercise should tell students **what they are trying to achieve**, without always telling them exactly how to achieve it.
+
+Use guided discovery rather than a long sequence such as:
+
+```text
+click this
+type this
+run this
+copy this
+```
+
+Commands and code snippets are appropriate where students need a starting point or where setup would otherwise consume unnecessary class time.
+
+---
+
+# Activity structure
+
+Create one Markdown file per Day 1 activity.
+
+Use a consistent structure similar to:
+
+```markdown
+# Activity 1 — Exploring the Application
+
+## Objective
+
+What the student should learn or demonstrate.
+
+## Scenario
+
+Brief context explaining why they are doing this task.
+
+## Your Task
+
+Describe the challenge.
+
+## Things to Investigate
+
+Questions, behaviours or areas worth exploring.
+
+These should guide without giving away the answer.
+
+## Evidence
+
+Describe what students should be able to show when the activity is complete.
+
+For example:
+
+- test results;
+- screenshots;
+- observations;
+- defect descriptions;
+- API responses;
+- code changes;
+- hypotheses;
+- notes explaining behaviour.
+
+## Stretch Challenge
+
+An optional extension for students who finish early.
+
+## Hints
+
+A small number of progressively useful hints.
+
+Do not immediately reveal the solution.
+
+## Discussion
+
+Two or three questions that the trainer can use when bringing the class back together.
+```
+
+Adapt this structure where appropriate rather than forcing every activity into exactly the same template.
+
+---
+
+# Activity duration
+
+At the top of each activity include:
+
+```markdown
+**Suggested time:** XX minutes
+```
+
+Infer an appropriate duration from the Day 1 training schedule.
+
+As a rough guide:
+
+* short investigation: 10–15 minutes
+* normal practical exercise: 20–30 minutes
+* larger challenge: 30–45 minutes
+
+Do not make every activity the same length.
+
+---
+
+# Important: use the deliberately flawed application
+
+The application contains defects and questionable implementation choices deliberately introduced for teaching.
+
+Use these carefully.
+
+For Day 1 activities, identify which defects are appropriate for students to encounter at their current level.
+
+Do **not** expose every deliberate flaw immediately.
+
+The application needs to remain useful throughout later days and later phases of the course.
+
+Where appropriate, allow students to encounter symptoms of a defect without explicitly telling them:
+
+> "There is a bug here."
+
+Instead ask questions such as:
+
+> What behaviour do you observe?
+
+> Does the actual result match what you expected?
+
+> Can you find an input that causes different behaviour?
+
+> What additional test would give you more confidence?
+
+Preserve more advanced defects for later activities where the slide deck indicates they will be used.
+
+---
+
+# Phase awareness
+
+The application is intended to support multiple stages of the programme, including **Phase 1 and Phase 2**.
+
+Day 1 exercises must therefore avoid making destructive changes that undermine later exercises.
+
+Where students modify code or tests:
+
+* keep the changes small;
+* prefer changes that can easily be reset;
+* tell students when they should commit, branch, reset or discard changes if the repository workflow expects this;
+* do not permanently fix defects that are intended for later course activities unless Day 1 specifically requires it.
+
+---
+
+# Repository commands
+
+Do not guess commands.
+
+Inspect the repository and use the **real commands** for:
+
+* starting the application;
+* Docker / Docker Compose;
+* installing dependencies;
+* running unit tests;
+* running integration tests;
+* running the frontend;
+* exercising APIs;
+* linting or formatting where relevant.
+
+Likewise, use the real:
+
+* service names;
+* URLs;
+* ports;
+* API endpoints;
+* test project names;
+* directory names.
+
+If the repository supports multiple ways of doing something, choose the simplest method for students.
+
+---
+
+# Student environment
+
+Assume that students have cloned or opened the repository and followed the course setup instructions.
+
+Do not repeat the entire environment installation process in every activity.
+
+Where an activity requires the application to be running, include a short prerequisite such as:
+
+```markdown
+## Before You Start
+
+Make sure the training application is running using the setup described in the course README.
+```
+
+Only include additional setup where the activity specifically requires it.
+
+---
+
+# Avoid revealing answers
+
+Student activity files must not contain:
+
+* hidden solution code;
+* exact defect locations;
+* descriptions of intentionally inserted flaws that give away the investigation;
+* trainer-only explanations;
+* expected bug lists.
+
+Where necessary, put trainer knowledge elsewhere rather than in the student handout.
+
+For now, only create the **student versions**.
+
+We will create trainer solution notes separately later.
+
+---
+
+# Progressive difficulty
+
+The Day 1 activities should form a progression.
+
+Early activities can provide more scaffolding.
+
+As Day 1 continues, reduce the guidance slightly and ask students to make more testing decisions themselves.
+
+A useful progression might be:
+
+**observe → test → investigate → diagnose → improve**
+
+but follow the actual Day 1 slide sequence rather than imposing this structure if it does not fit.
+
+---
+
+# Realistic SDET thinking
+
+Where possible, activities should reinforce behaviours expected from an SDET rather than simply testing syntax.
+
+Encourage students to think about questions such as:
+
+* What are we trying to prove?
+* What could fail?
+* Which inputs matter?
+* What is a useful assertion?
+* What would make this test unreliable?
+* What belongs in a unit test?
+* What requires integration testing?
+* What evidence tells us that the system really works?
+* Are we testing behaviour or implementation?
+* Would this test detect a regression?
+* Is the test deterministic?
+* What assumptions are we making?
+
+Only use the questions that are appropriate to concepts already introduced by that point in Day 1.
+
+---
+
+# File structure
+
+Create a directory for Day 1 activities if an appropriate training-material structure does not already exist.
+
+Prefer the repository's existing conventions.
+
+For example, this might eventually look similar to:
+
+```text
+training/
+  activities/
+    day-01/
+      README.md
+      activity-01-....md
+      activity-02-....md
+      activity-03-....md
+```
+
+But inspect the repository first and fit into its existing structure.
+
+Do not create a new top-level organisation unnecessarily.
+
+---
+
+# Day 1 activity index
+
+Also create a `README.md` in the Day 1 activities directory.
+
+It should contain a simple table:
+
+| Activity | Topic | Suggested Time | Main Skill |
+| -------- | ----- | -------------- | ---------- |
+
+Link each activity title to its Markdown file.
+
+Add an approximate **total practical activity time for Day 1** underneath the table.
+
+---
+
+# Cross-reference the slide deck
+
+For each activity, add a small metadata section near the top:
+
+```markdown
+**Day:** 1  
+**Activity:** 3  
+**Related slides:** <slide section/title>
+**Suggested time:** 25 minutes
+```
+
+Use actual slide titles or section names discovered in the slide deck.
+
+Do not invent slide numbers if the Markdown deck does not have stable numbering.
+
+---
+
+# Keep the prose suitable for students
+
+Use clear, conversational technical English.
+
+Avoid:
+
+* unnecessary corporate language;
+* childish language;
+* overly enthusiastic phrasing;
+* excessive warnings;
+* long theoretical explanations already covered by the slides.
+
+The handouts should feel like practical laboratory instructions for professional developers.
+
+---
+
+# Important quality check
+
+After creating the activities, review them as a complete Day 1 sequence.
+
+Check that:
+
+1. every Day 1 practical placeholder in the slide deck has a corresponding activity;
+2. activities only rely on concepts already taught at that point;
+3. the real repository commands and paths are used;
+4. deliberate defects are not accidentally revealed;
+5. later-course defects have not been consumed too early;
+6. activities become progressively more independent;
+7. there is enough practical work to break up the 4½-hour teaching day;
+8. no individual lecture/activity cycle requires the trainer to lecture continuously for much more than 15–20 minutes;
+9. activities produce something observable that can be discussed afterwards;
+10. student instructions do not contain trainer solutions.
+
+---
+
+# Do not modify the application unnecessarily
+
+This task is primarily about producing training material.
+
+Do not refactor or "clean up" the intentionally flawed sample application.
+
+Do not repair bugs merely because you discover them.
+
+Do not redesign the slide deck.
+
+If you find inconsistencies between the slide deck and the actual application, document them instead.
+
+Create:
+
+```text
+training/activity-review-notes.md
+```
+
+or the equivalent location appropriate to the repository.
+
+Record only genuine mismatches that would prevent or confuse an activity.
+
+---
+
+# Final response
+
+When finished, report:
+
+1. the Day 1 activities you identified;
+2. the files you created;
+3. the approximate duration of each activity;
+4. the total planned hands-on time;
+5. which broad areas of the sample application the students interact with;
+6. any slide/application inconsistencies you discovered;
+7. any deliberate flaws you consciously preserved for later days.
+
+Do **not** provide the solutions to the activities in the final response.
