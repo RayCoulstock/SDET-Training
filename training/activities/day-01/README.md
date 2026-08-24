@@ -13,6 +13,11 @@ These activities accompany **Phase 1 — Day 1** of the NeuroPulse SDET programm
 
 **Total planned practical activity time:** approximately **105 minutes**.
 
+Trainer worked examples and debrief notes are available in the
+[`solutions`](solutions/README.md) folder. They are intended as reference answers rather
+than a single marking scheme; several activities deliberately allow more than one
+well-supported conclusion.
+
 ## Working Safely with the Training State
 
 The application is shared teaching material for later activities. Unless an activity says otherwise, use the **Normal** training scenario and avoid changing application code. If the data no longer looks familiar, ask before resetting it: a reset affects every test using the same environment.
