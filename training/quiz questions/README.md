@@ -22,6 +22,4 @@ This folder contains the short Menti knowledge checks used immediately before ea
 - All questions are single-answer multiple choice so they are quick to create in Menti or Brillium.
 - The bold option is the correct answer. Do not show bold formatting in the learner-facing version.
 - Explanations are facilitator feedback, not part of the question stem.
-- Shuffle answer options when configuring the platform, where supported.
-- Review wording and answers after any material change to the programme slide deck.
 
