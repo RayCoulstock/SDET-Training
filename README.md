@@ -4,6 +4,8 @@ NeuroPulse is a fictional wearable-device management application and a testing l
 
 > This training application may contain intentional behaviours designed for testing exercises.
 
+Course facilitators can find the slide deck in [`training/slides`](training/slides/) and the tea-break Menti quizzes and end-of-phase Brillium question banks in [`training/quiz questions`](training/quiz%20questions/).
+
 ## Architecture and local services
 
 | Service | URL | Purpose |
