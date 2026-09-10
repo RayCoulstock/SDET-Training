@@ -27,6 +27,13 @@ docker compose up --build
 
 Schema creation and deterministic seed data are automatic. Open http://localhost:3000. The instructor controls are intentionally absent from navigation; access them directly at http://localhost:3000/training.
 
+Before class, confirm that every application container is healthy and that the API responds:
+
+```bash
+docker compose ps
+curl --fail http://localhost:5000/health
+```
+
 Stop with `docker compose down`; remove the database volume with `docker compose down -v`. Follow logs with `docker compose logs -f api device-simulator`.
 
 ## Resetting data
@@ -54,7 +61,17 @@ The three starter examples use Chromium, an HTML report, failure screenshots, an
 
 ### Postman, Pact, and JMeter
 
-Import both JSON files in `postman/`. The collection groups the primary endpoints and uses `baseUrl=http://localhost:5000`. Pact scaffolding and the consumer/provider exercise boundary are in `tests/contracts/`. Run the tiny JMeter target with `jmeter -n -t tests/performance/jmeter/telemetry-smoke.jmx` after starting the stack.
+Import both JSON files in `postman/`. The collection groups the primary endpoints and uses `baseUrl=http://localhost:5000`. Pact scaffolding and the consumer/provider exercise boundary are in `tests/contracts/`.
+
+JMeter 5.6.3 is included as an optional Compose tool, so a separate host installation is not required. With the application stopped or running, prepare Activity 8 and execute its safe five-request baseline with:
+
+```bash
+rm -rf tests/performance/jmeter/results/baseline.jtl \
+       tests/performance/jmeter/results/baseline-report
+docker compose --profile tools run --rm jmeter
+```
+
+The command starts any required application services, waits for the API health check, and writes the results under `tests/performance/jmeter/results/`. See the [JMeter starter guide](tests/performance/jmeter/README.md) for host-install and comparison-run alternatives.
 
 ## API discovery
 
@@ -67,6 +84,7 @@ Import both JSON files in `postman/`. The collection groups the primary endpoint
 
 * Wait for Compose health checks if the UI initially has no data.
 * Check `docker compose ps` and `docker compose logs api` for database startup issues.
+* The API now retries automatically after a transient startup failure. If `sdet-training-api-1` still exits and its logs report missing or incompatible database objects, remove the disposable training database with `docker compose down -v`, then run `docker compose up --build` again. This deletes locally changed training data.
 * Reset state via the endpoint above; use `docker compose down -v` for a completely fresh database.
 * Port conflicts can be resolved by changing only the host-side mappings in `docker-compose.yml`.
 * A simulator V2 response is intentionally incompatible with the current API consumer; return the scenario to **Normal**.

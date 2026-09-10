@@ -4,6 +4,7 @@
 **/dist/
 playwright-report/
 test-results/
+tests/performance/jmeter/results/
 .env
 .DS_Store
 
