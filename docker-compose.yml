@@ -39,5 +39,24 @@ services:
     ports: ["3000:80"]
     depends_on:
       api: { condition: service_healthy }
+  jmeter:
+    build: ./tests/performance/jmeter
+    profiles: ["tools"]
+    depends_on:
+      api: { condition: service_healthy }
+    volumes:
+      - ./tests/performance/jmeter:/plans:ro
+      - ./tests/performance/jmeter/results:/results
+    command:
+      - -n
+      - -t
+      - /plans/telemetry-smoke.jmx
+      - -Jhost=api
+      - -Jport=8080
+      - -l
+      - /results/baseline.jtl
+      - -e
+      - -o
+      - /results/baseline-report
 volumes:
   postgres-data:

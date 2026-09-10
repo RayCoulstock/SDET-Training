@@ -11,14 +11,16 @@ Compare a controlled telemetry baseline with one bounded change and interpret la
 
 ## Before You Start
 
-Make sure NeuroPulse and JMeter are available. Read `tests/performance/jmeter/README.md`. Coordinate scenario controls, begin in **Normal**, and keep all load on your local training environment.
+Make sure Docker is available and read `tests/performance/jmeter/README.md`. The repository includes JMeter 5.6.3 through Compose, so no separate installation is required. Coordinate scenario controls, begin in **Normal**, and keep all load on your local training environment.
 
 ## Your Task
 
-State a narrow risk question and record the environment, workload, and expected signal. From `tests/performance/jmeter`, run the safe baseline:
+State a narrow risk question and record the environment, workload, and expected signal. From the repository root, run the safe baseline:
 
 ```bash
-jmeter -n -t telemetry-smoke.jmx -l baseline.jtl -e -o baseline-report
+rm -rf tests/performance/jmeter/results/baseline.jtl \
+       tests/performance/jmeter/results/baseline-report
+docker compose --profile tools run --rm jmeter
 ```
 
 Record sample count, errors, throughput, average, median, p95, and p99 latency. Note why five observations cannot support a stable tail-latency claim.
