@@ -30,7 +30,7 @@ services:
       postgres: { condition: service_healthy }
       device-simulator: { condition: service_healthy }
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:8080/health"]
+      test: ["CMD", "dotnet", "NeuroPulse.Api.dll", "--healthcheck"]
       start_period: 15s
       interval: 5s
       timeout: 3s
