@@ -36,6 +36,8 @@ curl --fail http://localhost:5000/health
 
 After pulling repository changes, use `up` rather than `start`: `start` only restarts the existing containers and does not rebuild the API image or apply changed Compose configuration.
 
+The core PostgreSQL, simulator, API, and web definitions remain on the configuration from the last known-good application stack (`d484a91f1dc95bfd111f516f09852dd9798b8071`). The optional JMeter profile is additive and is not created during a normal `docker compose up`.
+
 ```bash
 docker compose down
 docker compose up --build --force-recreate
@@ -91,7 +93,7 @@ The command starts any required application services, waits for the API health c
 
 * Wait for Compose health checks if the UI initially has no data.
 * Check `docker compose ps` and `docker compose logs api` for database startup issues.
-* If `sdet-training-api-1` is unhealthy after an update, do not use `docker compose start`; rebuild it with `docker compose up --build --force-recreate` so that the current health check and image are installed.
+* If `sdet-training-api-1` is unhealthy after an update, do not use `docker compose start`; rebuild it with `docker compose up --build --force-recreate` so that the known-good API image and health check are installed.
 * Inspect the actual API failure with `docker compose logs api`. If its logs report missing or incompatible database objects, remove the disposable training database with `docker compose down -v`, then run `docker compose up --build --force-recreate` again. Removing the volume deletes locally changed training data.
 * Reset state via the endpoint above; use `docker compose down -v` for a completely fresh database.
 * Port conflicts can be resolved by changing only the host-side mappings in `docker-compose.yml`.

@@ -1,15 +1,4 @@
 using System.Text.Json.Serialization; using Microsoft.EntityFrameworkCore; using NeuroPulse.Api.Data; using NeuroPulse.Api.Models; using NeuroPulse.Api.Services;
-if(args.Contains("--healthcheck",StringComparer.Ordinal))
-{
- try
- {
-  using var healthClient=new HttpClient{Timeout=TimeSpan.FromSeconds(2)};
-  using var response=await healthClient.GetAsync("http://127.0.0.1:8080/health");
-  Environment.Exit(response.IsSuccessStatusCode?0:1);
- }
- catch(HttpRequestException){Environment.Exit(1);}
- catch(TaskCanceledException){Environment.Exit(1);}
-}
 var b=WebApplication.CreateBuilder(args);b.Services.AddDbContext<AppDbContext>(o=>o.UseNpgsql(b.Configuration.GetConnectionString("NeuroPulse")));b.Services.AddHttpClient<SessionService>(c=>c.BaseAddress=new Uri(b.Configuration["DeviceSimulatorUrl"]??"http://localhost:5100"));b.Services.AddHttpClient("sim",c=>c.BaseAddress=new Uri(b.Configuration["DeviceSimulatorUrl"]??"http://localhost:5100"));b.Services.ConfigureHttpJsonOptions(o=>o.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));b.Services.AddEndpointsApiExplorer();b.Services.AddSwaggerGen();b.Services.AddCors(o=>o.AddDefaultPolicy(p=>p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));var app=b.Build();app.UseCors();app.UseSwagger();app.UseSwaggerUI();app.MapGet("/health",()=>Results.Ok(new{status="healthy",service="NeuroPulse.Api"}));
 using(var scope=app.Services.CreateScope()){var db=scope.ServiceProvider.GetRequiredService<AppDbContext>();for(var i=0;i<10;i++){try{await db.Database.EnsureCreatedAsync();if(!await db.Participants.AnyAsync())await SeedData.Reset(db);break;}catch when(i<9){await Task.Delay(1500);}}}
 var api=app.MapGroup("/api");
